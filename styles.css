@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+:root {
+  font-size: 16px;
+}
+
+html, body {
+  height: 100%;
+}
+
+main {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+}
+
+.player1-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  font-size: 1.5em;
+  color: blue;
+}
+
+.player2-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  font-size: 1.5em;
+  color: green;
+}
+
+.player1-svg-container,
+.player2-svg-container {
+  position: relative;
+
+  width: 200px;
+  height: 200px;
+}
+
+.player1-svg-container .player1-svg {
+  stroke: blue;
+  stroke-width: 5;
+}
+
+.player2-svg-container .player2-svg {
+  stroke: green;
+  stroke-width: 5;
+}
+
+.player1-section input,
+.player2-section input {
+  height: 30px;
+  padding-left: 5px;
+}
+
+.player1-section input[placeholder],
+.player2-section input[placeholder] {
+  line-height: 20px;
+  font-size: 20px;
+}
+
+/* .player1-label-and-input,
+.player2-label-and-input {
+  display: flex;
+  flex-direction: column;
+
+} */
+.game-section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.tic-tac-toe-label {
+  font-weight: bold;
+  font-size: 3em;
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  width: 600px;
+  height: 600px;
+  background-color: none;
+}
+
+.gameboard div:nth-child(-n+6) {
+  border-bottom: 2px solid black;
+}
+
+.gameboard div:not(:nth-child(3n)) {
+  border-right: 2px solid black;
+}
+
+.grid-square {
+  position: relative;
+}
+
+svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* svg blocks my grid square container and I have a mouseover event
+     on the grid square so this makes mouse events pass through the svg */
+  pointer-events: none;
+}
+
+.svg-content line, 
+.svg-content circle {
+  stroke: black;
+  stroke-width: 5;
+}
+
+.hidden-svg {
+  visibility: hidden;
+}
+
+.start-game-button,
+.restart-game-button {
+  padding: 10px 30px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 20px;
+  background-color: #699AFC;
+  color: white;
+}
+
+.start-game-button:hover,
+.restart-game-button:hover {
+  filter: brightness(0.95);
+}
+
+.player-turn-message {
+  font-size: 2em;
+}
+
+.player1-svg.current-turn {
+  /* box-shadow: 0 0 10px rgba(0, 0, 255, 0.7); Blue glow for Player 1's turn */
+  filter: drop-shadow(0px 0px 10px rgba(0, 119, 255, 0.4));
+}
+
+.player2-svg.current-turn {
+  /* box-shadow: 0 0 10px rgba(0, 0, 255, 0.7); Blue glow for Player 1's turn */
+  filter: drop-shadow(0px 0px 10px rgba(44, 223, 53, 0.4));
+}
+
+.other-turn {
+  opacity: 0.2;
+}
